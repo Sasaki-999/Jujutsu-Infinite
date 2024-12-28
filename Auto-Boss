@@ -42,7 +42,7 @@ for i = 1,6 do
     for _, v in pairs(workspace:GetDescendants()) do
         if v:IsA("ProximityPrompt") then
             fireproximityprompt(v)
-            wait(0.3)
+            wait(0.25)
         end
     end
     
@@ -54,7 +54,7 @@ for i = 1,6 do
         game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Return, false, game)
         wait()
         game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.Return, false, game)
-        wait(0.3)
+        wait(0.2)
     end
 end
 
