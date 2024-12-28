@@ -38,23 +38,23 @@ humanoidRootPart.CFrame = bossSpawn.CFrame
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RadiantSkullz/JujutsuInfinite/refs/heads/main/Insanity"))()
 
-for i = 1, 7 do
+for i = 1,6 do
     for _, v in pairs(workspace:GetDescendants()) do
         if v:IsA("ProximityPrompt") then
             fireproximityprompt(v)
-            wait(0.4)
+            wait(0.3)
         end
     end
     
     wait(0.05)
     
-    for _ = 1, 9 do
+    for _ = 1, 15 do
         local gui = game:GetService("Players").LocalPlayer.PlayerGui.Loot.Frame.Flip
         game:GetService("GuiService").SelectedObject = gui
         game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Return, false, game)
         wait()
         game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.Return, false, game)
-        wait(0.35)
+        wait(0.3)
     end
 end
 
