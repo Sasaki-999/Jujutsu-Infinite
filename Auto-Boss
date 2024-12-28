@@ -38,11 +38,11 @@ humanoidRootPart.CFrame = bossSpawn.CFrame
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RadiantSkullz/JujutsuInfinite/refs/heads/main/Insanity"))()
 
-for i = 1, 6 do
+for i = 1, 7 do
     for _, v in pairs(workspace:GetDescendants()) do
         if v:IsA("ProximityPrompt") then
             fireproximityprompt(v)
-            wait(0.35)
+            wait(0.4)
         end
     end
     
