@@ -1,0 +1,64 @@
+--[[
+Credits
+    @_sasakii_  @tranvaobao @radiant_skull
+]]
+
+local Config = _G.Config or {
+    buff = false,
+    blackscreen = false
+}
+
+if Config.blackscreen then
+    local playerGui = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.IgnoreGuiInset = true
+    screenGui.Parent = playerGui
+
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.Position = UDim2.new(0, 0, 0, 0)
+    frame.BackgroundColor3 = Color3.new(0, 0, 0)
+    frame.BorderSizePixel = 0
+    frame.Parent = screenGui
+end
+
+if Config.buff then
+    local event = game:GetService("TextChatService").TextChannels.RBXGeneral
+    event:SendAsync("/buff")
+end
+
+local player = game:GetService("Players").LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local bossSpawn = workspace.Objects.Spawns.BossSpawn
+
+humanoidRootPart.CFrame = bossSpawn.CFrame
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RadiantSkullz/JujutsuInfinite/refs/heads/main/Insanity"))()
+
+for i = 1, 6 do
+    for _, v in pairs(workspace:GetDescendants()) do
+        if v:IsA("ProximityPrompt") then
+            fireproximityprompt(v)
+            wait(0.35)
+        end
+    end
+    
+    wait(0.05)
+    
+    for _ = 1, 9 do
+        local gui = game:GetService("Players").LocalPlayer.PlayerGui.Loot.Frame.Flip
+        game:GetService("GuiService").SelectedObject = gui
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+        wait()
+        game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+        wait(0.35)
+    end
+end
+
+local gui = game:GetService("Players").LocalPlayer.PlayerGui.ReadyScreen.Frame.Replay
+game:GetService("GuiService").SelectedObject = gui
+game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.Return, false, game)
